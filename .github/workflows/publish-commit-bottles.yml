@@ -106,6 +106,12 @@ jobs:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
 
+      - name: Checkout `brew` changes (for testing)
+        run: |
+          cd "$(brew --repository)"
+          git fetch origin new-merge-flow
+          git checkout new-merge-flow
+
       - name: Pull and upload bottles to GitHub Packages
         env:
           BREWTESTBOT_NAME_EMAIL: "${{ steps.git-user-config.outputs.name }} <${{ steps.git-user-config.outputs.email }}>"
