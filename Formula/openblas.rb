@@ -26,6 +26,10 @@ class Openblas < Formula
   depends_on "gcc" # for gfortran
   depends_on macos: :monterey
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   def install
     ENV.runtime_cpu_detection
     ENV.deparallelize # build is parallel by default, but setting -j confuses it
