@@ -24,6 +24,7 @@ class Openblas < Formula
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
   depends_on "gcc" # for gfortran
+  depends_on macos: :monterey
 
   def install
     ENV.runtime_cpu_detection
