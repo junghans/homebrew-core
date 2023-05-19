@@ -24,7 +24,7 @@ class Openblas < Formula
   keg_only :shadowed_by_macos, "macOS provides BLAS in Accelerate.framework"
 
   depends_on "gcc" # for gfortran
-  # TODO for older macos use gcc
+  # TODO for older macos use gcc 
   depends_on macos: :monterey
 
   on_macos do
